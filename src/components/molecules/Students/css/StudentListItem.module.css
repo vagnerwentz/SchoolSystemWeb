@@ -1,0 +1,55 @@
+.studentItemLink {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.studentItemLink:hover .studentItem {
+    background-color: #e0f7fa;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.studentItem {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.studentItem:hover {
+    background-color: #e0f7fa;
+}
+
+.studentItem:hover .studentName {
+    text-decoration: underline;
+}
+
+.studentInfo {
+    display: flex;
+    align-items: center;
+}
+
+.studentName {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #00796b;
+    margin-left: 10px;
+}
+
+.viewPerformance {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #00796b;
+}
+
+.performanceIcon {
+    margin-right: 5px;
+}

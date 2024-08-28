@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './global.css'
+import RegisterStudent from './pages/Students/RegisterStudentPage';
+import { Header } from './components/Header/Header';
+import StudentsFeatures from './pages/StudentFeatures/StudentsFeatures';
+import { ListStudentsPage } from './pages/Students/ListStudentsPage';
+import { EnrollmentPage } from './pages/Enrollments/EnrollmentPage';
+import { StudentPerformancePage } from './pages/StudentPerformances/StudentPerformancesPage';
+import ProfessorsFeatures from './pages/ProfessorFeatures/ProfessorsFeatures';
+import { ListProfessorsPage } from './pages/Professors/ListProfessorsPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/student/:id/performance" element={<StudentPerformancePage />} />
+          
+          <Route path="/students" element={<StudentsFeatures />} />
+          <Route path="/students/register" element={<RegisterStudent />} />
+          <Route path="/students/list" element={<ListStudentsPage />} />
+          
+          <Route path="/students/enroll" element={<EnrollmentPage />} />
+          
+          <Route path="/professors" element={<ProfessorsFeatures />} />
+          <Route path="/professors/list" element={<ListProfessorsPage />} />
+
+        </Routes>
+      </Router>
   );
 }
 

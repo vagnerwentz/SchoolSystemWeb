@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.photoUploaderContainer {
+  margin-bottom: 16px;
+}
+
+.photoLabel {
+  display: block;
+  margin-bottom: 8px;
+}

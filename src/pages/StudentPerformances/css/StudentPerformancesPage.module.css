@@ -1,0 +1,87 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.chartContainer {
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.detailsContainer {
+    margin-bottom: 2rem;
+}
+
+.subjectContainer {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.subjectTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.gradesList {
+    list-style-type: none;
+    color: black;
+}
+
+.gradeItem {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.gradeItem:last-child {
+    border-bottom: none;
+}
+
+.detailsAndFinalGrade {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.success {
+    color: green;
+}
+  
+.fail {
+    color: red;
+}
+
+.modalDescriptionLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 1rem;
+}
+.inputDescriptionFieldLabel {
+    color: black;
+}
+
+.inputGradeFieldLabel {
+    color: black;
+}

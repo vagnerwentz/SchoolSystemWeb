@@ -1,0 +1,22 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selectField {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 0.875rem;
+    color: #333;
+}

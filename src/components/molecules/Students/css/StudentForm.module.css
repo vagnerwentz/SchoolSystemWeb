@@ -1,0 +1,13 @@
+/* src/components/molecules/StudentForm.module.css */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+  
+.photoUploaderContainer {
+  margin-bottom: 15px;
+}
+  
+.name {
+  color: black;
+}

@@ -1,0 +1,38 @@
+.professorItemLink {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.professorItemLink:hover .professorItem {
+    background-color: #e0f7fa;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.professorItem {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.professorItem:hover {
+    background-color: #e0f7fa;
+}
+
+.professorItem:hover .professorName {
+    text-decoration: underline;
+}
+
+.professorName {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #00796b;
+}
