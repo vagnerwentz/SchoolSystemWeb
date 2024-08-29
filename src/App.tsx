@@ -9,6 +9,7 @@ import { StudentPerformancePage } from './pages/StudentPerformances/StudentPerfo
 import ProfessorsFeatures from './pages/ProfessorFeatures/ProfessorsFeatures';
 import { ListProfessorsPage } from './pages/Professors/ListProfessorsPage';
 import { ProfessorProfilePage } from './pages/Professors/ProfessorProfilePage';
+import { RegisterProfessorPage } from './pages/Professors/RegisterProfessorPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           
           <Route path="/students/enroll" element={<EnrollmentPage />} />
           
+          <Route path="/professor/register" element={<RegisterProfessorPage />} />
           <Route path="/professors" element={<ProfessorsFeatures />} />
           <Route path="/professors/list" element={<ListProfessorsPage />} />
           <Route path="/professor/:id" element={<ProfessorProfilePage />} />

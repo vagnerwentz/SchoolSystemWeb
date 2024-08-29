@@ -8,7 +8,7 @@ function ProfessorsFeatures() {
       <h1>Professores</h1>
       <div className="feature-boxes">
         <div className="feature-box">
-            <Link to="/professors/register">
+            <Link to="/professor/register">
                 <FaUserTie className="feature-icon" />
                 <span>Registrar um professor</span>
             </Link>

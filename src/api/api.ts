@@ -38,6 +38,7 @@ const post = async <T>(url: string, data: T) => {
 };
 
 export const createStudent = (student: StudentDTO) => post('/api/v1/students/create', student);
+export const registerProfessor = (professor: RegisterProfessorDTO) => post('/api/v1/professors/create', professor);
 export const getAllStudents = () => get<Student[]>('/api/v1/students/list');
 export const getAllSubjects = () => get<Subject[]>('/api/v1/subjects/list');
 export const getAllProfessors = () => get<GetAllProfessorsDto[]>('/api/v1/professors/list');
