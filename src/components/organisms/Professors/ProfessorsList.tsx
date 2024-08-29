@@ -1,9 +1,9 @@
 import styles from './css/ProfessorsList.module.css';
-import { GetAllProfessrosDto } from "../../../models/Professor/GetAllProfessorsDto";
+import { GetAllProfessorsDto } from "../../../models/Professor/GetAllProfessorsDto";
 import { ProfessorListItem } from '../../molecules/Professors/ProfessorListItem';
 
 interface ProfessorsListProps {
-  professors: GetAllProfessrosDto[];
+  professors: GetAllProfessorsDto[];
 }
 
 export function ProfessorsList({ professors }: ProfessorsListProps) {

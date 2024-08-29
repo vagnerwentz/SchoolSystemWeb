@@ -1,0 +1,115 @@
+.professorProfile {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.subjectContainer {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.studentList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modalTitle {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.modalContent {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.modalActions button {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modalActions button:first-child {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.modalActions button:first-child:hover {
+    background-color: #45a049;
+}
+
+.modalActions button:last-child {
+    background-color: #f44336;
+    color: white;
+}
+
+.modalActions button:last-child:hover {
+    background-color: #e53935;
+}

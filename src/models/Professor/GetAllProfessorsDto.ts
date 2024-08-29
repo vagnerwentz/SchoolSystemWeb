@@ -1,4 +1,4 @@
-export interface GetAllProfessrosDto {
+export interface GetAllProfessorsDto {
     id: number;
     name: string;
     photo?: string | undefined;

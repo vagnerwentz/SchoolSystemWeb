@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { FaChartLine } from 'react-icons/fa';
+import { Text } from "../../atoms/Text";
+import { Avatar } from "../../atoms/Avatar";
 
 import styles from './css/StudentListItem.module.css';
-import { Avatar } from "../../atoms/Avatar";
-import { Text } from "../../atoms/Text";
 
 interface StudentListItemProps {
     id: number;

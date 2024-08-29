@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { GetAllProfessrosDto } from "../../models/Professor/GetAllProfessorsDto";
+import { GetAllProfessorsDto } from "../../models/Professor/GetAllProfessorsDto";
 import { getAllProfessors } from "../../api/api";
 import { ListProfessorsTemplate } from "../../components/templates/Professors/ListProfessorsTemplate";
 
 export function ListProfessorsPage() {
-    const [professors, setProfessors] = useState<GetAllProfessrosDto[]>([]);
+    const [professors, setProfessors] = useState<GetAllProfessorsDto[]>([]);
 
     useEffect(() => {
         fetchProfessors();
