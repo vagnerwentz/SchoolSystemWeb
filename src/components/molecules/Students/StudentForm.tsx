@@ -5,8 +5,6 @@ import { InputField } from '../../atoms/InputField';
 import { Button } from '../../atoms/Button';
 import styles from './css/StudentForm.module.css';
 import { createStudent } from '../../../api/api';
-import { PhotoUploader } from '../../atoms/PhotoUploader';
-import { Label } from '../../atoms/Label';
 
 interface StudentFormProps {
   onAddStudent: (student: StudentDTO) => void;
@@ -43,10 +41,6 @@ export function StudentForm({ onAddStudent }: StudentFormProps) {
         label="Nome"
         classNameLabel={styles.name}
       />
-      <div className={styles.photoUploaderContainer}>
-        <Label text="Foto" htmlFor="photo" />
-        <PhotoUploader onFileSelect={(file) => setPhoto(file)} />
-      </div>
       <Button label="Registrar" />
     </form>
   );
