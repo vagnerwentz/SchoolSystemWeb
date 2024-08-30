@@ -1,46 +1,110 @@
-# Getting Started with Create React App
+# SchoolSystemWeb
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![SchoolSystemWeb](https://img.shields.io/badge/SchoolSystemWeb-1.0.0-blue.svg)
+![React](https://img.shields.io/badge/Frontend-React-blue.svg)
+![TypeScript](https://img.shields.io/badge/Language-TypeScript-blue.svg)
+![Atomic Design](https://img.shields.io/badge/Design-Atomic%20Design-yellowgreen.svg)
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
+- [Project Structure](#project-structure)
+- [Atomic Design](#atomic-design)
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**SchoolSystemWeb** is the frontend application for the School System project, developed using React and TypeScript. It interacts with the backend API to manage various school-related data such as student enrollment and grading. This project follows the Atomic Design methodology to create reusable and maintainable UI components.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- User-friendly interface for student management
+- Integration with backend APIs for data handling
+- Modular component design using Atomic Design principles
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+- **Frontend:** React, TypeScript
+- **Design Methodology:** Atomic Design
+- **Styling:** CSS modules
+- **Version Control:** GitHub
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Node.js:** Ensure you have Node.js installed on your machine.
+- **npm or yarn:** Package manager to install dependencies.
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. **Clone the repository:**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    git clone https://github.com/vagnerwentz/SchoolSystemWeb.git
+    cd SchoolSystemWeb
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. **Install dependencies:**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    If you're using npm:
 
-## Learn More
+    ```bash
+    npm install
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    Or if you're using yarn:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    yarn install
+    ```
+
+### Running the Project
+
+To start the development server:
+
+```bash
+npm start
+```
+Or if you prefer yarn
+```bash
+yarn start
+```
+
+## Project Structure
+```
+SchoolSystemWeb/
+├── public/                       # Public assets
+├── src/                          # Source files
+│   ├── components/               # Atomic Design components
+│   │   ├── atoms/                # Smallest building blocks (buttons, inputs, etc.)
+│   │   ├── molecules/            # Groups of atoms working together (form groups, card layouts, etc.)
+│   │   ├── organisms/            # Complex components (navbars, forms, etc.)
+│   │   ├── templates/            # Page layout templates
+│   │   └── pages/                # Actual pages
+│   ├── services/                 # API service calls
+│   ├── styles/                   # Global styles
+│   ├── App.tsx                   # Root component
+│   └── index.tsx                 # Entry point
+├── package.json                  # Project metadata and dependencies
+├── tsconfig.json                 # TypeScript configuration
+└── README.md                     # Project documentation
+
+```
+
+## Atomic Design
+This project uses the Atomic Design methodology, which helps in creating a structured and maintainable component library. The Atomic Design is broken down into five distinct levels:
+
+1. Atoms: Basic building blocks (e.g., buttons, inputs, labels).
+2. Molecules: Groups of atoms bonded together (e.g., a form group with a label and input).
+3. Organisms: More complex UI components composed of molecules and/or atoms (e.g., a navbar, card components).
+4. Templates: Page-level structures that combine organisms (e.g., a full page layout without content).
+5. Pages: Complete pages that include templates filled with real content and data.
+
+This structure promotes reusability, consistency, and scalability within the application.
+
