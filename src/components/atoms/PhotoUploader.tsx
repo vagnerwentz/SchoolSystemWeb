@@ -1,4 +1,3 @@
-// src/components/atoms/PhotoUploader.tsx
 import React from 'react';
 import styles from './css/PhotoUploader.module.css';
 

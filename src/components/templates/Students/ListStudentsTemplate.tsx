@@ -1,4 +1,4 @@
-import { StudentList } from '../../organisms//Students/StudentList';
+import { StudentList } from '../../organisms/Students/StudentList';
 import styles from './css/ListStudentsTemplate.module.css';
 import { Student } from '../../../models/Student';
 

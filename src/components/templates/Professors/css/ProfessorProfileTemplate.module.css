@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #fafafa; /* Cor de fundo mais suave */
+    background-color: #fafafa;
     padding: 1rem;
 }
 
