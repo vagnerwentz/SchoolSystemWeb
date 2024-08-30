@@ -9,14 +9,19 @@ interface StudentListProps {
 export function StudentList({ students }: StudentListProps) {
   return (
     <ul className={styles.studentsList}>
-      {students.map(student => (
-        <StudentListItem
-          key={student.id}
-          id={student.id}
-          name={student.name}
-          photo={student.photo}
-        />
-      ))}
+      {students.length === 0 ? (<strong>Não há informações de estudantes ou matérias para realizar matrícula</strong>) : (
+        <div>
+          {students.map(student => (
+            <StudentListItem
+              key={student.id}
+              id={student.id}
+              name={student.name}
+              photo={student.photo}
+            />
+          ))}
+        </div>
+      )}
+      
     </ul>
   );
 }

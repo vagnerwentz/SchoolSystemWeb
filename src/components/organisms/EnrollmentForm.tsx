@@ -8,6 +8,7 @@ import { Subject } from '../../models/Subject';
 import { EnrollmentDTO } from '../../models/EnrollmentDTO';
 
 export function EnrollmentForm() {
+  
   const [students, setStudents] = useState<Student[]>([]);
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [selectedStudent, setSelectedStudent] = useState('');
@@ -47,23 +48,29 @@ export function EnrollmentForm() {
 
   return (
       <form className={styles.form} onSubmit={(e) => { e.preventDefault(); handleSubmit(e); }}>
-        <SelectField
-          label="Estudante"
-          options={students.map((student) => ({ value: student.id, label: student.name }))}
-          value={selectedStudent}
-          onChange={setSelectedStudent}
-          className={styles.selectField}
-          classNameLabel={styles.label}
-        />
-        <SelectField
-          label="Matéria"
-          options={subjects.map((subject) => ({ value: subject.id, label: subject.name }))}
-          value={selectedSubject}
-          onChange={setSelectedSubject}
-          className={styles.selectField}
-          classNameLabel={styles.label}
-        />
-        <FormActions />
+        {(students.length === 0 || subjects.length === 0) ? (<strong>Não há informações de estudantes ou matérias para realizar matrícula</strong>) : 
+        (
+          <div>
+            <SelectField
+              label="Estudante"
+              options={students.map((student) => ({ value: student.id, label: student.name }))}
+              value={selectedStudent}
+              onChange={setSelectedStudent}
+              className={styles.selectField}
+              classNameLabel={styles.label}
+            />
+            <SelectField
+              label="Matéria"
+              options={subjects.map((subject) => ({ value: subject.id, label: subject.name }))}
+              value={selectedSubject}
+              onChange={setSelectedSubject}
+              className={styles.selectField}
+              classNameLabel={styles.label}
+            />
+            <FormActions />
+          </div>
+        )}
+        
     </form>
   );
 };

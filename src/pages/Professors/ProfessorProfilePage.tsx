@@ -9,10 +9,6 @@ export function ProfessorProfilePage() {
     const [isLoading, setIsLoading] = useState(false);
     const [professorData, setProfessorData] = useState<ProfessorProfileViewModel | null>(null);
 
-    useEffect(() => {
-        fetchProfessorProfile();
-    }, [id]);
-    
     const fetchProfessorProfile = async () => {
         setIsLoading(true);
         try {
@@ -25,6 +21,12 @@ export function ProfessorProfilePage() {
             setIsLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchProfessorProfile();
+    }, [id]);
+    
+    
     
     if (isLoading) {
         return <strong>Carregando...</strong>;

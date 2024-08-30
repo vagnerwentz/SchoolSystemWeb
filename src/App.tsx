@@ -10,6 +10,8 @@ import ProfessorsFeatures from './pages/ProfessorFeatures/ProfessorsFeatures';
 import { ListProfessorsPage } from './pages/Professors/ListProfessorsPage';
 import { ProfessorProfilePage } from './pages/Professors/ProfessorProfilePage';
 import { RegisterProfessorPage } from './pages/Professors/RegisterProfessorPage';
+import { SubjectsFeature } from './pages/SubjectFeatures/SubjectFeatures';
+import { AddSubjectPage } from './pages/Subjects/AddSubjectPage';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
           <Route path="/professors/list" element={<ListProfessorsPage />} />
           <Route path="/professor/:id" element={<ProfessorProfilePage />} />
 
+          <Route path="/subjects" element={<SubjectsFeature />} />
+          <Route path="/subject/register" element={<AddSubjectPage />} />
         </Routes>
       </Router>
   );

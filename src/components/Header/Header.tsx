@@ -14,7 +14,7 @@ export function Header() {
                 <Link to="/professors">Professores</Link>
               </li>
               <li>
-                <Link to="/">Matérias</Link>
+                <Link to="/subjects">Matérias</Link>
               </li>
             </ul>
           </nav>

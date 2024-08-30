@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+  
+.selectField {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 0.875rem;
+  color: #333;
+}
