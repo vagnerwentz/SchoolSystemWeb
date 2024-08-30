@@ -12,7 +12,7 @@ import { RegisterProfessorDTO } from "../models/Professor/RegisterProfessorDTO";
 import { IAddSubjectDTO } from "../models/Subject/IAddSubjectDTO";
 
 const api = axios.create({
-    baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:5126"
+    baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:8080"
 });
 
 const headers = {
