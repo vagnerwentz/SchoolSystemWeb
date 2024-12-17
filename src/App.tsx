@@ -13,11 +13,15 @@ import { RegisterProfessorPage } from './pages/Professors/RegisterProfessorPage'
 import { SubjectsFeature } from './pages/SubjectFeatures/SubjectFeatures';
 import { AddSubjectPage } from './pages/Subjects/AddSubjectPage';
 
+import RegisterPlantPage from './pages/Planting/RegisterPlant';
+
 function App() {
   return (
       <Router>
         <Header />
         <Routes>
+          <Route path="/plant/register" element={<RegisterPlantPage />} />
+
           <Route path="/student/:id/performance" element={<StudentPerformancePage />} />
           
           <Route path="/students" element={<StudentsFeatures />} />

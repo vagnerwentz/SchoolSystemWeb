@@ -10,6 +10,7 @@ import { GetAllProfessorsDto } from "../models/Professor/GetAllProfessorsDto";
 import { ProfessorProfileViewModel } from "../models/Professor/ViewModel/ProfessorProfileViewModel";
 import { RegisterProfessorDTO } from "../models/Professor/RegisterProfessorDTO";
 import { IAddSubjectDTO } from "../models/Subject/IAddSubjectDTO";
+import { RegisterPlantDTO } from "../models/Plant/RegisterPlantDTO";
 
 const api = axios.create({
     baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:8080"
@@ -18,7 +19,8 @@ const api = axios.create({
 const headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6ImY2OTBjYjg3LTk2ZjctNGQyNi1hYmE5LWE0YzE1YTBjZmVlMiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNzM0NDQzMTkwLCJleHAiOjE3MzQ0NDY3OTAsImlzcyI6IlVURlBSIn0.06ZRjgWDnx51ovhDTFwyLN_CKGS9BBkBKF-EEbMrHcY"
 };
 
 const get = async <T>(url: string) => {
@@ -49,3 +51,5 @@ export const enrollStudent = (enrollment: EnrollmentDTO) => post('/api/v1/enroll
 export const getStudentPerformance = (id: string | number) => get<StudentPerformance>(`/api/v1/student/performance/${id}`);
 export const addStudentPerformance = (addStudentPerformance: AddStudentPerformance) => post(`/api/v1/student/performance/create`, addStudentPerformance);
 export const getProfessorProfile = (id: string) => get<ProfessorProfileViewModel>(`/api/v1/professors/profile/${id}`);
+
+export const registerPlant = (plant: RegisterPlantDTO) => post('/api/planting', plant);

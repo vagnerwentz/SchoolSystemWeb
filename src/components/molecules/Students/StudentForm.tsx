@@ -21,7 +21,7 @@ export function StudentForm({ onAddStudent }: StudentFormProps) {
         name: name,
         photo: photo || null,
       };
-      
+            
       await createStudent(student);
       onAddStudent(student);
       setName('');
