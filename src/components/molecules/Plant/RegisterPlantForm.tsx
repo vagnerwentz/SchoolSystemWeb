@@ -1,9 +1,7 @@
-import { useState } from 'react';
-
+import { useRegisterPlantForm } from './useRegisterPlantForm';
 import { InputField } from '../../atoms/InputField';
 import { Button } from '../../atoms/Button';
-import styles from '../Students/css/StudentForm.module.css';
-import { registerPlant } from '../../../api/api';
+import styles from './RegisterPlantForm.module.css';
 import { RegisterPlantDTO } from '../../../models/Plant/RegisterPlantDTO';
 
 interface RegisterPlantFormProps {
@@ -11,93 +9,72 @@ interface RegisterPlantFormProps {
 }
 
 export function RegisterPlantForm({ onRegisterPlant }: RegisterPlantFormProps) {
-  const [type, setType] = useState('');
-  const [area, setArea] = useState('');
-  const [maximumHumidity, setMaximumHumidity] = useState('');
-  const [maximumTemperature, setMaximumTemperature] = useState('');
-  const [minimumHumidity, setMinimumHumidity] = useState('');
-  const [minimumTemperature, setMinimumTemperature] = useState('');
-  const [idealSchedule, setIdealSchedule] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const plant: RegisterPlantDTO = {
-        type,
-        area,
-        wateringConditionsDTO: {
-            maximumHumidity,
-            maximumTemperature,
-            minimumHumidity,
-            minimumTemperature,
-            idealSchedule
-        }
-      };
-      await registerPlant(plant);
-      onRegisterPlant(plant);
-    } catch (error) {
-      console.error(error);
-      alert('Falha ao tentar adicionar uma planta.');
-    }
-  };
+  const {
+    formData,
+    handleInputChange,
+    handleSubmit,
+  } = useRegisterPlantForm(onRegisterPlant);
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <InputField
         id="type"
-        value={type}
-        onChange={(e) => setType(e.target.value)}
+        value={formData.type}
+        onChange={handleInputChange}
         label="Tipo da planta"
-        classNameLabel={styles.name}
+        classNameLabel={styles.input}
       />
 
-    <InputField
+      <InputField
         id="area"
-        value={area}
-        onChange={(e) => setArea(e.target.value)}
+        value={formData.area}
+        onChange={handleInputChange}
         label="Área"
-        classNameLabel={styles.name}
+        classNameLabel={styles.input}
       />
 
-    <InputField
-        id="minimumTemperature"
-        value={minimumTemperature}
-        onChange={(e) => setMinimumTemperature(e.target.value)}
-        label="Temperatua miníma"
-        classNameLabel={styles.name}
-      />
+      <div className={styles.rowContainer}>
+        <InputField
+          id="minimumTemperature"
+          value={formData.minimumTemperature}
+          onChange={handleInputChange}
+          label="Temperatura mínima"
+          classNameLabel={styles.input}
+        />
+        <InputField
+          id="maximumTemperature"
+          value={formData.maximumTemperature}
+          onChange={handleInputChange}
+          label="Temperatura máxima"
+          classNameLabel={styles.input}
+        />
+      </div>
 
-    <InputField
-        id="maximumHumidity"
-        value={maximumHumidity}
-        onChange={(e) => setMaximumHumidity(e.target.value)}
-        label="Umidade máxima"
-        classNameLabel={styles.name}
-      />
+      <div className={styles.rowContainer}>
+        <InputField
+          id="minimumHumidity"
+          value={formData.minimumHumidity}
+          onChange={handleInputChange}
+          label="Umidade mínima"
+          classNameLabel={styles.input}
+        />
+        <InputField
+          id="maximumHumidity"
+          value={formData.maximumHumidity}
+          onChange={handleInputChange}
+          label="Umidade máxima"
+          classNameLabel={styles.input}
+        />
+      </div>
 
-    <InputField
-        id="minimumHumidity"
-        value={minimumHumidity}
-        onChange={(e) => setMinimumHumidity(e.target.value)}
-        label="Umidade mínima"
-        classNameLabel={styles.name}
-      />
-
-    <InputField
-        id="maximumTemperature"
-        value={maximumTemperature}
-        onChange={(e) => setMaximumTemperature(e.target.value)}
-        label="Temp máxima"
-        classNameLabel={styles.name}
-      />
-
-    <InputField
+      <InputField
         id="idealSchedule"
-        value={idealSchedule}
-        onChange={(e) => setIdealSchedule(e.target.value)}
+        value={formData.idealSchedule}
+        onChange={handleInputChange}
         label="Horário ideal"
-        classNameLabel={styles.name}
+        classNameLabel={styles.input}
       />
+
       <Button label="Registrar" />
     </form>
   );

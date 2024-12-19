@@ -7,7 +7,7 @@ interface InputFieldProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
   classNameLabel?: string | undefined;
-  type?: "text" | "number";
+  type?: "text" | "number" | "password";
 }
 
 export function InputField({ id, value, onChange, label, classNameLabel, type = "text" }: InputFieldProps) {

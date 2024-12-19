@@ -1,16 +1,7 @@
 import axios from "axios";
-import { StudentDTO } from "../models/StudentDTO";
-import { Student } from "../models/Student";
 import { ApiResponse } from "./ApiResponse";
-import { Subject } from "../models/Subject";
-import { EnrollmentDTO } from "../models/EnrollmentDTO";
-import { StudentPerformance } from "../models/StudentPerformance";
-import { AddStudentPerformance } from "../models/StudentPerformance/AddStudentPerformance";
-import { GetAllProfessorsDto } from "../models/Professor/GetAllProfessorsDto";
-import { ProfessorProfileViewModel } from "../models/Professor/ViewModel/ProfessorProfileViewModel";
-import { RegisterProfessorDTO } from "../models/Professor/RegisterProfessorDTO";
-import { IAddSubjectDTO } from "../models/Subject/IAddSubjectDTO";
 import { RegisterPlantDTO } from "../models/Plant/RegisterPlantDTO";
+import { ListPlantsDTO } from "../models/Plant/ListPlantsDTO";
 
 const api = axios.create({
     baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:8080"
@@ -20,36 +11,66 @@ const headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
     "Content-Type": "application/json",
-    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6ImY2OTBjYjg3LTk2ZjctNGQyNi1hYmE5LWE0YzE1YTBjZmVlMiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNzM0NDQzMTkwLCJleHAiOjE3MzQ0NDY3OTAsImlzcyI6IlVURlBSIn0.06ZRjgWDnx51ovhDTFwyLN_CKGS9BBkBKF-EEbMrHcY"
+    // "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6ImY5Yjc5YjJmLTQzNzgtNGQ1OC04ZTU1LWI4NjhlODU0OTgzZCIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNzM0NTMzNzIwLCJleHAiOjE3MzQ1MzczMjAsImlzcyI6IlVURlBSIn0.ok6Ekr-LOmYyrZ1SqVjBZDPu_FWPTWHLpH6p48zqhpw"
 };
+
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+});
 
 const get = async <T>(url: string) => {
     try {
-        return await api.get<ApiResponse<T>>(url, { headers });
+        const response = await api.get<ApiResponse<T>>(url, { headers });
+        console.log("Response do get no api.ts" + JSON.stringify(response));
+        return response;
     } catch (error) {
-        console.error(`Failed to fetch ${url}:`, error);
-        throw error;
+        if (axios.isAxiosError(error)) {
+            console.error(`Erro ao buscar ${url}: ${error.message}`);
+            if (error.response) {
+                console.error("Resposta da API com erro:", error.response.data);
+            }
+        } else {
+            console.error("Erro inesperado:", error);
+        }
+        throw error; // Re-lança o erro para que o chamador possa tratá-lo
     }
 };
+
 
 const post = async <T>(url: string, data: T) => {
     try {
         return await api.post(url, data, { headers });
     } catch (error) {
-        console.error(`Failed to post to ${url}:`, error);
+        console.error(`Erro ao fazer um post ${url}:`, error);
         throw error;
     }
 };
 
-export const createStudent = (student: StudentDTO) => post('/api/v1/students/create', student);
-export const registerProfessor = (professor: RegisterProfessorDTO) => post('/api/v1/professors/create', professor);
-export const addSubject = (subject: IAddSubjectDTO) => post('/api/v1/subjects/create', subject);
-export const getAllStudents = () => get<Student[]>('/api/v1/students/list');
-export const getAllSubjects = () => get<Subject[]>('/api/v1/subjects/list');
-export const getAllProfessors = () => get<GetAllProfessorsDto[]>('/api/v1/professors/list');
-export const enrollStudent = (enrollment: EnrollmentDTO) => post('/api/v1/enrollment/student', enrollment);
-export const getStudentPerformance = (id: string | number) => get<StudentPerformance>(`/api/v1/student/performance/${id}`);
-export const addStudentPerformance = (addStudentPerformance: AddStudentPerformance) => post(`/api/v1/student/performance/create`, addStudentPerformance);
-export const getProfessorProfile = (id: string) => get<ProfessorProfileViewModel>(`/api/v1/professors/profile/${id}`);
+const patch = async <T>(url: string, data: T) => {
+    try {
+        return await api.patch(url, data, { headers });
+    } catch (error) {
+        console.error(`Erro ao fazer um patch ${url}:`, error);
+        throw error;
+    }
+};
+
+const deleteRequest = async(url: string) => {
+    try {
+        return await api.delete(url, { headers });
+    } catch (error) {
+        console.error(`Erro ao fazer um delete ${url}:`, error);
+        throw error;
+    }
+};
 
 export const registerPlant = (plant: RegisterPlantDTO) => post('/api/planting', plant);
+export const getAllPlants = () => get<ListPlantsDTO[]>('/api/planting/list');
+export const deletePlantById = (id: string) => deleteRequest(`api/planting/${id}`);
+export const updatePartialPlantById = (id: string, fields: Partial<ListPlantsDTO>) => 
+    patch(`api/planting/${id}`, fields);
+export const signIn = (email: string, password: string) => post('/auth', {email, password});

@@ -7,6 +7,7 @@ interface RegisterWateringConditionsDTO {
 }
 
 export interface RegisterPlantDTO {
+    id?: string;
     type: string;
     area: string;
     wateringConditionsDTO: RegisterWateringConditionsDTO

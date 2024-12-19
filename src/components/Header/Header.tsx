@@ -8,13 +8,13 @@ export function Header() {
           <nav>
             <ul className={styles.navLinks}>
               <li>
-                <Link to="/students">Estudantes</Link>
+                <Link to="/A">A</Link>
               </li>
               <li>
-                <Link to="/professors">Professores</Link>
+                <Link to="/B">B</Link>
               </li>
               <li>
-                <Link to="/subjects">Matérias</Link>
+                <Link to="/C">C</Link>
               </li>
             </ul>
           </nav>
